@@ -1,122 +1,189 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Romy Baptista — Portfólio</title>
 
-    <title>Romy | Portfolio</title>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            darkgreen: "#102F15",
+            midgreen: "#728C5A",
+            pale: "#EAF1B1",
+            cream: "#EBFADC",
+          },
+          fontFamily: {
+            retro: ["'Special Elite'", "serif"],
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Fonte retro temporária (trocaremos depois) -->
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
 </head>
-<body>
-    
-<nav class="nb-navbar" role="navigation" aria-label="Main navigation">
-    <a href="/" class="nb-navbar-brand" aria-label="Go to homepage">Romy</a>
-    <ul class="nb-navbar-nav" role="menubar">
-        <li class="nb-navbar-item" role="none"><a href="index.html" class="nb-navbar-link active" role="menuitem">Home</a></li>
-        <li class="nb-navbar-item" role="none"><a href="about.html" class="nb-navbar-link" role="menuitem">Sobre mim</a></li>
-        <li class="nb-navbar-item" role="none"><a href="portfolio.html" class="nb-navbar-link" role="menuitem">Projetos</a></li>
-        <li class="nb-navbar-item" role="none"><a href="skills.html" class="nb-navbar-link" role="menuitem">Competências</a></li>
-        <li class="nb-navbar-item" role="none"><a href="contact.html" class="nb-navbar-link" role="menuitem">Contacto</a></li>
-    </ul>
-</nav>
+<link rel="stylesheet" href="style.css">
+<body class="bg-darkgreen text-cream font-retro">
 
+  <!-- NAVBAR -->
+  <header class="w-full fixed top-0 left-0 z-50">
+    <nav class="flex justify-between items-center px-4 py-4 bg-darkgreen">
+      <!-- LOGO -->
+      <h1 class="text-pale text-xl">Romy Baptista</h1>
 
-<header class="hero">
-    <h1>Olá, aqui é a Romy</h1>
-    <p>Estudante universitária de Comunicação Audiovisual e Multimédia</p>
-    <button class="nb-button green" onclick="scrollToSection('portfolio')>Ver Projetos</button> 
-</header>
+      <!-- MENU MOBILE BUTTON -->
+      <button id="menu-btn" class="xl:hidden text-pale text-2xl">
+        ☰
+      </button>
 
+      <!-- NAV LINKS -->
+      <ul id="menu"
+        class="hidden flex-col gap-4 absolute top-full left-0 w-full bg-darkgreen p-6 text-center
+               xl:flex xl:static xl:flex-row xl:w-auto xl:gap-8">
+        <li><a href="#hero-section" class="hover:text-midgreen transition">Home</a></li>  <!-- Atualizado para #hero-section -->
+        <li><a href="#about" class="hover:text-midgreen transition">About me</a></li>
+        <li><a href="#projects" class="hover:text-midgreen transition">Projects</a></li>
+        <li><a href="#gallery" class="hover:text-midgreen transition">Gallery</a></li>
+        <li><a href="#contact" class="hover:text-midgreen transition">Let’s talk</a></li>  
+        <li><a href="#shoutout" class="hover:text-midgreen transition">Shoutout to</a></li>  
+      </ul>
+    </nav>
+  </header>
 
-<section id="portfolio" class="section">
-    <h2>Projetos em Destaque</h2>
+  <!-- HERO SECTION -->
+  <section id="hero-section" 
+    class="h-screen w-full flex items-center justify-center bg-cover bg-center mt-[80px] transition-all duration-700"
+    style="background-image: url('xadrez.jpg');">
+    <h2 class="text-5xl md:text-7xl xl:text-8xl text-darkgreen backdrop-blur-sm p-4 rounded-lg animate-fade-in">
+      Era uma vez...
+    </h2>
+  </section>
 
-    <div class="nb-card">
-        <img src="assets/img/project1.jpg" class="nb-card-img">
-        <div class="nb-card-content">
-            <h4 class="nb-card-title">Projeto 1: Curta-Metragem</h4>
-            <p class="nb-card-text">Descrição breve do projeto de curta-metragem realizado
-            <div class="nb-card-actions">
-                <button class="nb-button">Learn More</button>
-            </div>
-        </div>
+  <!-- ABOUT ME -->
+  <section id="about" class="p-6 md:p-12 xl:p-20 animate-fade-in">
+    <h3 class="text-2xl md:text-3xl mb-4">About me</h3>
+    <p>Romy é uma criadora audiovisual angolana, natural de Luanda, atualmente a residir no Porto, Portugal. Estudante de Comunicação Audiovisual e Multimédia na Universidade Lusófona do Porto, desenvolve trabalhos que transitam entre cinema, documentário e narrativa visual, com interesse por imagens que comunicam de forma sensível, intencional e simbólica. Apaixonada por filmes e documentários, Romy participa ativamente como voluntária na área de Comunicação — Mídia e Multimédia da Igreja Lagoinha Porto. Integra também a comunidade de jovens criadores cristãos About Him, onde já atuou como roteirista e realizadora de curtas-metragens e outros projetos audiovisuais. 
+      O seu trabalho nasce do desejo de contar histórias que tocam o íntimo, explorando o audiovisual como ferramenta de reflexão, fé e identidade, sempre com foco em narrativas claras e emocionalmente significativas.</p>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="p-6 md:p-12 xl:p-20 animate-fade-in">
+    <h3 class="text-2xl md:text-3xl mb-6">Projects</h3>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+      <!-- Projeto 1: Curta-Metragem -->
+    <div class="project-card bg-midgreen p-4 rounded-lg text-center">
+      <a href="https://youtu.be/zTAxoLcN4C0" target="_blank" rel="noopener noreferrer">
+        <img src="um lugar.jpg.jpeg" 
+             alt="Thumbnail do Curta-Metragem" class="w-full h-50 object-cover rounded mb-4 project-img">
+      </a>
+      <h4 class="text-xl mb-2">Curta-Metragem: Um Lugar</h4>
+      <p class="text-sm mb-4">É um curta-metragem poético e introspectivo que apresenta o Tempo como narrador e consciência. Inspirado na abordagem contemplativa e reflexiva do documentário Caverna dos Sonhos Esquecidos, de Werner Herzog, o filme propõe uma experiência sensorial e meditativa sobre a passagem da vida e a relação da humanidade com aquilo que é inevitável, invisível e absoluto: o tempo.</p>
+      <a href="https://youtu.be/zTAxoLcN4C0" target="_blank" class="inline-block bg-pale text-darkgreen px-4 py-2 rounded hover:bg-cream transition">Assistir Vídeo</a>
     </div>
+
+
+      <!-- Projeto 2: Outros Sites -->
+    <div class="project-card bg-midgreen p-4 rounded-lg text-center">
+        <img src="abstrato.png.jpeg" 
+             alt="Thumbnail do Site 1" class="w-full h-50 object-cover rounded mb-4 project-img">
+      </a>
+      <h4 class="text-xl mb-2">Sites Desenvolvidos</h4>
+      <p class="text-sm mb-4">Links dos meus projetos web anteriores.</p>
+      <ul class="text-sm space-y-1">
+        <li><a href="https://rosalinadalvabaptista-crypto.github.io/exercicio.filme.web/" target="_blank" class="hover:text-pale transition">A Princesa e o Sapo</a></li>
+        <li><a href="https://rosalinadalvabaptista-crypto.github.io/exercicio3-galeria-/" target="_blank" class="hover:text-pale transition">Galeria</a></li>
+
+      </ul>
+    </div>
+
+     <!-- Projeto 3: PDF Portfólio -->
+    <div class="project-card bg-midgreen p-4 rounded-lg text-center">
+      <a href="portfolio.pdf" download>  <!-- Substitua por URL se for externa, ex: https://exemplo.com/portfolio.pdf -->
+        <img src="foto1.jpg" 
+             alt="Thumbnail do PDF Portfólio" class="w-full h-50 object-cover rounded mb-4 project-img">
+      </a>
+      <h4 class="text-xl mb-2">Portfólio em PDF</h4>
+      <p class="text-sm mb-4">Práticas Fotográficas.</p>
+      <a href="portfolio.pdf" download class="https://drive.google.com/file/d/1H8ebOmBmUVzYY0U6bQL-gqyouPyn38W6/view?usp=sharing">Baixar PDF</a>
+    </div>
+  </div>
 </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  <!-- GALLERY -->
+  <section id="gallery" class="p-6 md:p-12 xl:p-20 animate-fade-in">
+    <h3 class="text-2xl md:text-3xl mb-6">Gallery</h3>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
+      <img src="bandana,jpg.jpeg" alt="Imagem 1 - Retrato Vintage" class="gallery-img w-full h-60 object-cover rounded-lg">
+      <img src="foto2.jpg" alt="Imagem 2 - Filme Antigo" class="gallery-img w-full h-60 object-cover rounded-lg">
+      <img src="foto3.jpg" alt="Imagem 3 - Papel Antigo" class="gallery-img w-full h-60 object-cover rounded-lg">
+      <img src="foto4.jpg" alt="Imagem 4 - Rolo de Filme" class="gallery-img w-full h-60 object-cover rounded-lg">
+    </div>
+  </section>
+
+<!-- LET’S TALK -->
+<section id="contact" class="p-6 md:p-12 xl:p-20 animate-fade-in">
+  <h3 class="text-2xl md:text-3xl mb-6">Let’s talk</h3>
+  <p class="mb-6">Entre em contato comigo através do Instagram ou email para colaborações, projetos ou apenas para uma troca de ideias!</p>
+  
+  <div class="flex flex-col md:flex-row gap-4 justify-center">
+    <!-- Botão para Instagram -->
+    <a href="https://www.instagram.com/romy_prod?igsh=MWJhYzZ5b2g5Z3g0Yw%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="w-full md:w-auto">
+      <button class="nb-button default">Seguir no Instagram</button>
+    </a>
+    
+    <!-- Botão para revelar Email -->
+    <button id="reveal-email-btn" class="nb-button green w-full md:w-auto">Mostrar email</button>
+  </div>
+  
+  <!-- Área para mostrar o email (inicialmente oculta) -->
+  <div id="email-display" class="mt-4 text-center opacity-0 transition-opacity duration-500 hidden">
+    <p class="text-pale">Meu email: <a href="rosalinadalvabaptista@gmail.com" class="hover:text-midgreen transition">rosalinadalvabaptista@gmail.com</a></p>
+  </div>
+</section>
+
+<!-- SHOUTOUT TO -->
+<section id="shoutout" class="p-6 md:p-12 xl:p-20 animate-fade-in">
+  <h3 class="text-2xl md:text-3xl mb-6">Shoutout to</h3>
+  
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+    <!-- Card -->
+    <div class="nb-card">
+      <img src="amigos.jpg" 
+           class="nb-card-img" alt="Imagem Vintage - Rolo de Filme">
+      <div class="nb-card-content">
+        <h4 class="nb-card-title">Obrigada!</h4>
+        <p class="nb-card-text">Por tirar um tempinho para explorar o meu portfólio. Espero que tenha gostado!</p>
+        <div class="nb-card-actions">
+          <button id="shoutout-btn" class="nb-button">Shoutout to</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Imagem do Canva -->
+    <img src="the end.png" alt="Texto Vintage: The End" class="w-full h-auto rounded-lg shadow-lg floating">
+  </div>
+  
+  <!-- Área para o texto de agradecimento (inicialmente oculta) -->
+  <div id="shoutout-text" class="mt-6 text-center opacity-0 transition-opacity duration-500 hidden">
+    <p class="text-pale">Um agradecimento especial aos colegas de turma, que dividiram processos, dúvidas e descobertas. Aos professores, que ensinaram para além da matéria. E aos amigos e familiares, por serem casa, força e presença ao longo de todo o caminho.</p>
+  </div>
+</section>
+
+  <!-- FOOTER -->
+  <footer class="p-6 text-center bg-midgreen text-darkgreen">
+    © 2025 Romy Baptista — All rights reserved.
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script src="script.js"></script>
 
 </body>
 </html>

@@ -1,48 +1,155 @@
-:root {
-    --dark: #102F15;
-    --green: #728C5A;
-    --light: #EAF1B1;
-    --cream: #EBFADC;
+/* Molduras Vintage para Galeria */
+.gallery-img {
+  border: 2px solid #728C5A; /* Borda midgreen para enquadrar */
+  border-radius: 8px; /* Cantos levemente arredondados, como papel antigo */
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.5), /* Sombra externa profunda, como filme em rolo */
+    inset 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra interna para textura */
+  filter: sepia(20%) contrast(1.1) brightness(0.9); /* Filtro para parecer "velho papel" ou filme desgastado */
+  transition: all 0.3s ease; /* Suave para hovers */
+  position: relative;
 }
 
-body {
-    background: var(--cream);
-    color: var(--dark);
-    font-family: "Courier New", monospace;
-    margin: 0;
+/* Efeito de "rasgo" nas bordas (opcional, para mais vintage) */
+.gallery-img::before {
+  content: "";
+  position: absolute;
+  top: -2px; left: -2px; right: -2px; bottom: -2px;
+  border: 2px solid #EAF1B1; /* Borda pale para destaque */
+  border-radius: 10px; /* Irregular para simular rasgo */
+  z-index: -1;
+  opacity: 0.7;
 }
 
-.nb-navbar {
-    background: var(--dark);
-    color: var(--cream);
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
+/* Hover: Aumenta o efeito vintage */
+.gallery-img:hover {
+  filter: sepia(30%) contrast(1.2) brightness(0.8); /* Mais "antigo" no hover */
+  box-shadow: 
+    0 6px 12px rgba(0, 0, 0, 0.7), /* Sombra mais intensa */
+    inset 0 0 15px rgba(0, 0, 0, 0.3);
+  transform: rotate(1deg); /* Leve rotação para simular filme torto */
 }
 
-.nb-navbar-link {
-    color: var(--cream);
+/* Estilos para Botões Vintage (se nb-button não existir) */
+.nb-button {
+  padding: 12px 24px;
+  border: 2px solid #728C5A; /* Borda midgreen */
+  border-radius: 8px;
+  font-family: 'Special Elite', serif; /* Fonte retro */
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #EBFADC; /* Fundo cream */
+  color: #102F15; /* Texto darkgreen */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Sombra sutil */
+}
+
+.nb-button.default {
+  background-color: #EAF1B1; /* Fundo pale */
+  border-color: #728C5A;
+}
+
+.nb-button.default:hover {
+  background-color: #728C5A; /* Hover para midgreen */
+  color: #EBFADC; /* Texto cream */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .nb-button.green {
-    background: var(--green);
-    border: none;
-    padding: .5rem 1rem;
+  background-color: #728C5A; /* Fundo midgreen */
+  border-color: #102F15;
+  color: #EBFADC; /* Texto cream */
 }
 
-.nb-input.green {
-    border: 2px solid var(--green);
-    padding: .5rem;
-    width: 100%;
-    margin-bottom: 1rem;
+.nb-button.green:hover {
+  background-color: #102F15; /* Hover para darkgreen */
+  border-color: #EAF1B1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
+/* Estilos para Card Vintage (se nb-card não existir) */
+.nb-card {
+  max-width: 400px;
+  border: 3px solid #728C5A; /* Borda midgreen */
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra profunda */
+  background: linear-gradient(to bottom, #EBFADC 0%, #EAF1B1 100%); /* Gradiente cream-pale */
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
 
-/* RESPONSIVE */
-@media (min-width: 768px) {
-    .portfolio-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
-    }
+.nb-card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+  transform: translateY(-5px); /* Levanta no hover */
+}
+
+.nb-card-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  filter: sepia(20%) contrast(1.1); /* Filtro vintage */
+  transition: filter 0.3s ease;
+}
+
+.nb-card-img:hover {
+  filter: sepia(30%) contrast(1.2); /* Mais "antigo" no hover */
+}
+
+.nb-card-content {
+  padding: 1rem;
+}
+
+.nb-card-title {
+  font-family: 'Special Elite', serif;
+  font-size: 1.5rem;
+  color: #102F15; /* Darkgreen */
+  margin-bottom: 0.5rem;
+}
+
+.nb-card-text {
+  font-size: 1rem;
+  color: #728C5A; /* Midgreen */
+  margin-bottom: 1rem;
+}
+
+.nb-card-actions {
+  text-align: center;
+}
+
+.nb-button {
+  padding: 10px 20px;
+  border: 2px solid #728C5A;
+  border-radius: 6px;
+  background-color: #EAF1B1; /* Pale */
+  color: #102F15;
+  font-family: 'Special Elite', serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nb-button:hover {
+  background-color: #728C5A;
+  color: #EBFADC;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Garantir largura total nos botões em mobile */
+@media (max-width: 768px) {
+  .nb-button {
+    width: 100% !important; /* Força largura total */
+  }
+}
+
+/* Animação de Flutuação para a Imagem */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0); /* Posição inicial/final */
+  }
+  50% {
+    transform: translateY(-10px); /* Sobe 10px no meio */
+  }
+}
+
+.floating {
+  animation: float 3s ease-in-out infinite; /* Duração: 3s, easing suave, loop infinito */
 }
